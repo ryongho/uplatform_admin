@@ -40,9 +40,9 @@
       $("#login_btn").click(function(){
         const email = $("#inputEmail").val();
         const password = $("#inputPassword").val();
-        alert(email);
+        
         $.ajax({
-          method: "POST",
+          method: "GET",
           url: "http://api.hi-shiny-o.com/api/admin/login",
           data: { email : email, password: password }
         })
