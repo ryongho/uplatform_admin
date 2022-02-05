@@ -41,14 +41,14 @@
         const email = $("#inputEmail").val();
         const password = $("#inputPassword").val();
         alert(email);
-        /*$.ajax({
+        $.ajax({
           method: "POST",
-          url: "some.php",
-          data: { name: "John", location: "Boston" }
+          url: "http://api.hi-shiny-o.com/api/admin/login",
+          data: { email : email, password: password }
         })
         .done(function( msg ) {
           alert( "Data Saved: " + msg );
-        });*/
+        });
       });
     });
 
