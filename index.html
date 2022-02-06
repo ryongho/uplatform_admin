@@ -34,20 +34,29 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
+  <script src="js/jquery.cookie.js"></script>
 
   <script>
     $().ready(function(){
+
+
       $("#login_btn").click(function(){
         const email = $("#inputEmail").val();
         const password = $("#inputPassword").val();
-        
         $.ajax({
           method: "GET",
           url: "http://api.hi-shiny-o.com/api/admin/login",
           data: { email : email, password: password }
         })
-        .done(function( msg ) {
-          alert( "Data Saved: " + msg );
+        .done(function(data) {
+            const status = data.status;
+            if(status == "200"){
+              
+              $.cookie('token', data.token);
+            }else{
+              alert("계정정보를 확인해 주세요.");
+            }
+            console.log($.cookie('token'));
         });
       });
     });
