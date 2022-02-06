@@ -276,26 +276,31 @@
         //console.log($.cookie('token'));
         check_login();
       
-      $("#login_btn").click(function(){
-        const email = $("#inputEmail").val();
-        const password = $("#inputPassword").val();
         $.ajax({
           method: "GET",
-          url: "http://api.hi-shiny-o.com/api/admin/login",
-          data: { email : email, password: password }
+          url: "http://api.hi-shiny-o.com/api/admin/reservation/list",
+          data: { reservation_type : 'CS',
+                    type: 'W', 
+                    status: 'W', 
+                    start_no: '0', 
+                    row: '10', 
+                    start_date: '2021-02-04', 
+                    end_date: '2022-02-04', 
+                    search_type: 'name', 
+                    search_keyword: '노용호', 
+                }
         })
         .done(function(data) {
             const status = data.status;
             if(status == "200"){ 
-              $.cookie('token', data.token);
-              window.location.href="reservation.html";
+              console.log(data);
             }else{
-              alert("계정정보를 확인해 주세요.");
+              alert("데이터를 로드하지 못했습니다.");
             }
         });
-      });
 
-    });
+
+
 
     const check_login = () => {
         if(!$.cookie('token')){
@@ -303,8 +308,6 @@
             window.location.href = "index.html";
         }
     }
-
-    //http://api.hi-shiny-o.com/api/admin/reservation/list?reservation_type=CS&type=W&status=W&start_no=0&row=10&start_date=2021-02-04&end_date=2022-02-04&search_type=name&search_keyword=노용호
   </script>
 </body>
 
