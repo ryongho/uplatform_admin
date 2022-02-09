@@ -45,7 +45,7 @@
         const password = $("#inputPassword").val();
         $.ajax({
           method: "GET",
-          url: "http://api.hi-shiny-o.com/api/admin/login",
+          url: "https://api.hi-shiny-o.com/api/admin/login",
           data: { email : email, password: password }
         })
         .done(function(data) {
