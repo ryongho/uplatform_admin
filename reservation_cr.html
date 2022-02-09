@@ -569,7 +569,7 @@
         $.ajax({
           method: "PUT",
           headers: {
-            'Authorization': `Bearer 423|qeW4zBD3TRC0KfFGR4TL7kj6OKwnaYQSXniOmExx`,
+            'Authorization': `Bearer `+$.cookie('token'),
           },
           url: "http://api.hi-shiny-o.com/api/admin/apply/match",
           data: { reservation_id : reservation_id, apply_id : apply_id}

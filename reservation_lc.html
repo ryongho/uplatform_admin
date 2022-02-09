@@ -398,7 +398,7 @@
         $.ajax({
           method: "GET",
           headers: {
-            'Authorization': $.cookie('token'),
+            'Authorization': `Bearer `+$.cookie('token'),
           },
           url: "http://api.hi-shiny-o.com/api/admin/reservation/list",
           data: { reservation_type : 'LC',
