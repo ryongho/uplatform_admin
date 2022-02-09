@@ -439,7 +439,9 @@
                     html += '<td>'+status_to_str(data[key]['status'])+'</td>';
                     html += '<td>'+data[key]['memo']+'</td>';
                     html += '<td>'+data[key]['price']+'</td>';
-                    if(data[key]['apply_cnt'] > 0){
+                    if(type == "I" || type == "S"){
+                        html += '<td>'+data[key]['matched_name']+'('+data[key]['address']+'/'+data[key]['phone']+')</td>';
+                    }else if(data[key]['apply_cnt'] > 0){
                         html += '<td><a data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="pop_apply_list('+data[key]['reservation_id']+')">'+data[key]['apply_cnt']+'</a></td>';
                     }else{
                         html += '<td>'+data[key]['apply_cnt']+'</td>';
