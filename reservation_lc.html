@@ -476,7 +476,7 @@
         $.ajax({
           method: "GET",
           headers: {
-            'Authorization': $.cookie('token'),
+            'Authorization': `Bearer `+$.cookie('token'),
           },
           url: "http://api.hi-shiny-o.com/api/admin/reservation/list_cnt",
           data: { reservation_type : 'LC'}
@@ -517,7 +517,7 @@
         $.ajax({
           method: "GET",
           headers: {
-            'Authorization': $.cookie('token'),
+            'Authorization': `Bearer `+$.cookie('token'),
           },
           url: "http://api.hi-shiny-o.com/api/admin/apply/list",
           data: { reservation_id : reservation_id}
@@ -568,7 +568,7 @@
         $.ajax({
           method: "PUT",
           headers: {
-            'Authorization': `Bearer 423|qeW4zBD3TRC0KfFGR4TL7kj6OKwnaYQSXniOmExx`,
+            'Authorization': `Bearer `+$.cookie('token'),
           },
           url: "http://api.hi-shiny-o.com/api/admin/apply/match",
           data: { reservation_id : reservation_id, apply_id : apply_id}
