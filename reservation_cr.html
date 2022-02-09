@@ -400,7 +400,7 @@
           headers: {
             'Authorization': `Bearer `+$.cookie('token'),
           },
-          url: "http://api.hi-shiny-o.com/api/admin/reservation/list",
+          url: "https://api.hi-shiny-o.com/api/admin/reservation/list",
           data: { reservation_type : 'CR',
                     type: type, 
                     status: status, 
@@ -472,7 +472,7 @@
           headers: {
             'Authorization': `Bearer `+$.cookie('token'),
           },
-          url: "http://api.hi-shiny-o.com/api/admin/reservation/list_cnt",
+          url: "https://api.hi-shiny-o.com/api/admin/reservation/list_cnt",
           data: { reservation_type : 'CR'}
         })
         .done(function(result) {
@@ -513,7 +513,7 @@
           headers: {
             'Authorization': `Bearer `+$.cookie('token'),
           },
-          url: "http://api.hi-shiny-o.com/api/admin/apply/list",
+          url: "https://api.hi-shiny-o.com/api/admin/apply/list",
           data: { reservation_id : reservation_id}
         })
         .done(function(result) {
@@ -571,7 +571,7 @@
           headers: {
             'Authorization': `Bearer `+$.cookie('token'),
           },
-          url: "http://api.hi-shiny-o.com/api/admin/apply/match",
+          url: "https://api.hi-shiny-o.com/api/admin/apply/match",
           data: { reservation_id : reservation_id, apply_id : apply_id}
         })
         .done(function(result) {
