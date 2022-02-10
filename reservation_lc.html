@@ -619,7 +619,7 @@
           headers: {
             'Authorization': `Bearer `+$.cookie('token'),
           },
-          url: "http://api.hi-shiny-o.com/api/admin/reservation/update_service_address",
+          url: "https://api.hi-shiny-o.com/api/admin/reservation/update_service_address",
           data: { reservation_id : reservation_id, service_address : service_address}
         })
         .done(function(result) {
