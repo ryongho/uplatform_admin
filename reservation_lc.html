@@ -461,7 +461,7 @@
                     if(type == "I" || type == "S"){
                         html += '<td>'+data[key]['matched_name']+'('+data[key]['address']+'/'+data[key]['phone']+')</td>';
                     }else if(data[key]['apply_cnt'] > 0){
-                        html += '<td><a data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="pop_apply_list('+data[key]['reservation_id']+')">'+data[key]['apply_cnt']+'</a></td>';
+                        html += '<td id="service_address_'+data[key]['reservation_id']+'"><a data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="pop_apply_list('+data[key]['reservation_id']+')">'+data[key]['apply_cnt']+'</a></td>';
                     }else{
                         html += '<td>'+data[key]['apply_cnt']+'</td>';
                     }
@@ -606,8 +606,9 @@
         
     }
     const pop_regist = (reservation_id) =>{
-        console.log(reservation_id);
+        //console.log(reservation_id);
         $("#regist_reservation_id").val(reservation_id);
+        $("#learn_address").val("");
     }
 
     const regist_address = () =>{
@@ -625,6 +626,7 @@
         .done(function(result) {
             
             if(result.status == "200"){ 
+                $('service_address_'+reservation_id).text(service_address);
                 alert("교육장소가 등록 되었습니다.");
             }else{
               alert("교육 장소 등록 실패 : 관리자에게 문의하세요.");
