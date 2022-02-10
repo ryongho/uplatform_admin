@@ -612,7 +612,24 @@
 
     const regist_address = () =>{
         const reservation_id = $("#regist_reservation_id").val();
-        const searvice_address = $("#learn_address").val();
+        const service_address = $("#learn_address").val();
+        console.log(reservation_id, service_address);
+        $.ajax({
+          method: "PUT",
+          headers: {
+            'Authorization': `Bearer `+$.cookie('token'),
+          },
+          url: "http://api.hi-shiny-o.com/api/admin/reservation/update_service_address",
+          data: { reservation_id : reservation_id, service_address : service_address}
+        })
+        .done(function(result) {
+            
+            if(result.status == "200"){ 
+                alert("교육장소가 등록 되었습니다.");
+            }else{
+              alert("교육 장소 등록 실패 : 관리자에게 문의하세요.");
+            }
+        });
 
     }
     
