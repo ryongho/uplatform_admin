@@ -450,7 +450,7 @@
                     html += '<td>'+type_to_str(data[key]['reservation_type'])+'</td>';
                     html += '<td>'+data[key]['service_detail']+'</td>';
                     if(data[key]['service_addr'] == null){
-                        html += '<td><input type="button" data-bs-target="#registModal" onclick="pop_regist('+data[key]['reservation_id']+')" value="교육 장소 등록"/></td>';    
+                        html += '<td><input type="button"  data-bs-toggle="modal" data-bs-target="#registModal" onclick="pop_regist('+data[key]['reservation_id']+')" value="교육 장소 등록"/></td>';    
                     }else{
                         html += '<td>'+data[key]['service_addr']+'</td>';
                     }
