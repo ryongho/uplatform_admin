@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary" id="btn_cancel" data-bs-dismiss="modal" onclick="cancel()">예약 취소</button>
+                        <button type="button" class="btn btn-primary" id="btn_cancel" onclick="cancel()">예약 취소</button>
                     </div>
 
                     <nav aria-label="Page navigation" style="width:300px; margin:auto;">
@@ -580,16 +580,39 @@
     }
 
     const cancel = () =>{
-        let ids = '';
-        $('.check_row_id').each(function() {
-            var value = $(this).val();              // value
-            var checked = $(this).prop('checked'); 
-            if(checked){
-                ids += value + ",";
-            }
-        });
 
-        console.log(ids);
+        const type = $("#type").val();
+
+        if(type == "S"){
+            alert("서비스 완료된 예약은 취소할 수 없습니다.");
+        }else{
+            let ids = '';
+            $('.check_row_id').each(function() {
+                var value = $(this).val();              // value
+                var checked = $(this).prop('checked'); 
+                if(checked){
+                    ids += value + ",";
+                }
+            });
+
+            $.ajax({
+                method: "PUT",
+                headers: {
+                    'Authorization': `Bearer `+$.cookie('token'),
+                },
+                url: "https://api.hi-shiny-o.com/api/admin/reservation/cancel",
+                data: { ids : ids }
+            })
+            .done(function(result) {
+        
+                if(result.status == "200"){ 
+                    alert(" 예약 취소 되었습니다.");
+                }else{
+                alert("예약 취소 실패 : 관리자에게 문의하세요.");
+                }
+            });
+        }
+        
     }
 
     
