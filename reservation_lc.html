@@ -626,7 +626,7 @@
         .done(function(result) {
             
             if(result.status == "200"){ 
-                $('service_address_'+reservation_id).text(service_address);
+                $('#service_address_'+reservation_id).text(service_address);
                 alert("교육장소가 등록 되었습니다.");
             }else{
               alert("교육 장소 등록 실패 : 관리자에게 문의하세요.");
