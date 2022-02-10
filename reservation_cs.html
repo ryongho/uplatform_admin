@@ -164,6 +164,10 @@
                         </div>
                     </div>
 
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary" id="btn_cancel" data-bs-dismiss="modal" onclick="cancel()">예약 취소</button>
+                    </div>
+
                     <nav aria-label="Page navigation" style="width:300px; margin:auto;">
                         <ul class="pagination">
                           
@@ -414,7 +418,7 @@
                 for(var key in data) { 
                     
                     const created_at = toStringByFormatting(new Date(data[key]['created_at']));
-                    html += '<tr><th><input type="checkbox" class="checks" value="'+data[key]['reservation_id']+'"></th>';
+                    html += '<tr><th><input type="checkbox" class="check_row_id" value="'+data[key]['reservation_id']+'"></th>';
                     html += '<td>'+created_at+'</td>';
                     html += '<td>'+data[key]['reservation_no']+'</td>';
                     html += '<td>'+data[key]['name']+'('+data[key]['email']+')</td>';
@@ -573,6 +577,19 @@
         
 
         
+    }
+
+    const cancel = () =>{
+        let ids = '';
+        $('.check_row_id').each(function() {
+            var value = $(this).val();              // value
+            var checked = $(this).prop('checked'); 
+            if(checked){
+                ids += value + ",";
+            }
+        });
+
+        console.log(ids);
     }
 
     
