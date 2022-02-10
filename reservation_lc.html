@@ -214,36 +214,16 @@
                         <div class="modal-dialog modal-sm">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="registModalLabel">> 전문가 지원 현황</h5>
+                            <h5 class="modal-title" id="registModalLabel">> 교육장소 등록</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <input type="hidden" value="" id="selected_reservation_id" />
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">전문가명</th>
-                                            <th scope="col">서비스 유형</th>
-                                            <th scope="col">지역</th>
-                                            <th scope="col">서비스 가능 거리</th>
-                                            <th scope="col">사업자번호</th> 
-                                            <th scope="col">구분</th>
-                                            <th scope="col">직위</th>
-                                            <th scope="col">상호명</th>
-                                            <th scope="col">주소</th>
-                                            <th scope="col">상담연락처</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="apply_list_table">
-                                        
-                                        
-                                    </tbody>
-                                </table>
+                                <input type="hidden" value="" id="regist_reservation_id" />
+                                <input type="text" value="" id="learn_address" />
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="btn_matching" data-bs-dismiss="modal" onclick="matching()">매칭하기</button>
+                            <button type="button" class="btn btn-primary" id="btn_regist_address" data-bs-dismiss="modal" onclick="regist_address()">등록하기</button>
                             </div>
                         </div>
                         </div>
@@ -470,7 +450,7 @@
                     html += '<td>'+type_to_str(data[key]['reservation_type'])+'</td>';
                     html += '<td>'+data[key]['service_detail']+'</td>';
                     if(data[key]['service_addr'] == null){
-                        html += '<td><input type="button" data-bs-target="#exampleModal" onclick="pop_regist('+data[key]['reservation_id']+')" value="교육 장소 등록"/></td>';    
+                        html += '<td><input type="button" data-bs-target="#registModal" onclick="pop_regist('+data[key]['reservation_id']+')" value="교육 장소 등록"/></td>';    
                     }else{
                         html += '<td>'+data[key]['service_addr']+'</td>';
                     }
@@ -627,6 +607,13 @@
     }
     const pop_regist = (reservation_id) =>{
         console.log(reservation_id);
+        $("#regist_reservation_id").val(reservation_id);
+    }
+
+    const regist_address = () =>{
+        const reservation_id = $("#regist_reservation_id").val();
+        const searvice_address = $("#learn_address").val();
+
     }
     
 
