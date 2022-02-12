@@ -165,7 +165,7 @@
 
                     <div class="col-12">
                         <button type="button" class="btn btn-primary" id="btn_cancel" style="margin-left:50px;width:100px;" onclick="cancel()">예약 취소</button>
-                        <button type="button" class="btn btn-primary" id="btn_go" style="margin-left:50px;width:150px;" target="I" onclick="go()">진행중 리스트로 이동</button>
+                        <button type="button" class="btn btn-primary" id="btn_go" style="margin-left:30px;width:170px;" target="I" onclick="go()">진행중 리스트로 이동</button>
                     </div>
 
                     <nav aria-label="Page navigation" style="width:300px; margin:auto;">
@@ -525,13 +525,13 @@
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_W").removeClass("btn-outline-btn-primary").addClass("btn-primary");
             $("#btn_go").attr('target','I');
-            $("#btn_go").val('진행중 리스트로 이동');
+            $("#btn_go").text('진행중 리스트로 이동');
             $("#btn_go").css('display','');
         }else if(type == "I"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_I").removeClass("btn-outline-btn-primary").addClass("btn-primary");
             $("#btn_go").attr('target','S');
-            $("#btn_go").val('완료 리스트로 이동');
+            $("#btn_go").text('완료 리스트로 이동');
             $("#btn_go").css('display','');
         }else if(type == "S"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
