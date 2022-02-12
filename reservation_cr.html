@@ -111,9 +111,9 @@
                     <div class="col-12 bg-white px-4 py-0" style="float:left;">
                         <input type="hidden" id="type" value="W"/>
                         <div style="margin-top:80px;margin-bottom:40px;">
-                            <button type="button" class="btn btn-lg btn-primary m-2 btn_status" id="btn_status_W" onclick="chnage_status('W')">확정대기 <span id="w_cnt"></span></button>
-                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_I" onclick="chnage_status('I')">진행중 <span id="i_cnt"></span></button>
-                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_S" onclick="chnage_status('S')">완료 <span id="s_cnt"></span></button>
+                            <button type="button" class="btn btn-lg btn-primary m-2 btn_status" id="btn_status_W" onclick="change_status('W')">확정대기 <span id="w_cnt"></span></button>
+                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_I" onclick="change_status('I')">진행중 <span id="i_cnt"></span></button>
+                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_S" onclick="change_status('S')">완료 <span id="s_cnt"></span></button>
                         </div>
                         <select class="form-select search_type mb-1" id="search_type" aria-label=".search_type" style="width:auto;float:left;margin-right:10px;">
                             <option selected value="">전체</option>
@@ -489,20 +489,29 @@
         });
     }
 
-    const chnage_status = (type) =>{
+    const change_status = (type) =>{
         $("#type").val(type);
         if(type == "W"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_W").removeClass("btn-outline-btn-primary").addClass("btn-primary");
+            $("#btn_go").attr('target','I');
+            $("#btn_go").val('진행중 리스트로 이동');
         }else if(type == "I"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_I").removeClass("btn-outline-btn-primary").addClass("btn-primary");
+            $("#btn_go").attr('target','S');
+            $("#btn_go").val('완료 리스트로 이동');
         }else if(type == "S"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_S").removeClass("btn-outline-btn-primary").addClass("btn-primary");
         }
         
         get_reservation();
+    }
+
+    const go = () => {
+        const target = $("#btn_go").attr('target');
+        change_status(target);
     }
 
     const pop_apply_list = (reservation_id) => {
