@@ -138,7 +138,7 @@
                     <div class="col-12">
                         <div class="bg-white rounded h-100 p-4">
                             <h6 class="mb-4">신청 & 지원 현황</h6>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" style="font-size: 9px;">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -146,13 +146,13 @@
                                         <th scope="col">예약번호</th>
                                         <th scope="col">고객명</th>
                                         <th scope="col">서비스유형</th>
-                                        <th scope="col">서비스상세</th>
+                                        <th scope="col" style="width:70px;">서비스상세</th>
                                         <th scope="col">방문주소</th> 
                                         <th scope="col">교육요일</th>
-                                        <th scope="col">진행상태</th>
+                                        <th scope="col" style="width:30px;">상태</th>
                                         <th scope="col">안내사항</th>
                                         <th scope="col">결제금액</th>
-                                        <th scope="col">전문가 지원</th>
+                                        <th scope="col"  style="width:30px;">전문가지원</th>
                                     </tr>
                                 </thead>
                                 <tbody id="data_table">
@@ -649,6 +649,42 @@
               alert("교육 장소 등록 실패 : 관리자에게 문의하세요.");
             }
         });
+
+    }
+
+    const cancel = () =>{
+
+        const type = $("#type").val();
+
+        if(type == "S"){
+            alert("서비스 완료된 예약은 취소할 수 없습니다.");
+        }else{
+            let ids = '';
+            $('.check_row_id').each(function() {
+                var value = $(this).val();              // value
+                var checked = $(this).prop('checked'); 
+                if(checked){
+                    ids += value + ",";
+                }
+            });
+
+            $.ajax({
+                method: "PUT",
+                headers: {
+                    'Authorization': `Bearer `+$.cookie('token'),
+                },
+                url: "https://api.hi-shiny-o.com/api/admin/reservation/cancel",
+                data: { ids : ids }
+            })
+            .done(function(result) {
+
+                if(result.status == "200"){ 
+                    alert(" 예약 취소 되었습니다.");
+                }else{
+                alert("예약 취소 실패 : 관리자에게 문의하세요.");
+                }
+            });
+        }
 
     }
     
