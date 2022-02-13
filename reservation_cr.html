@@ -315,7 +315,7 @@
         check_login();
 
         $('#btn_modal').on('click',function(){
-            console.log('dddd');
+            //console.log('dddd');
             $('#myModal').modal('toggle');
         });
 
@@ -422,13 +422,13 @@
             const status = result.status;
             if(status == "200"){ 
                 let html = '';
-                //console.log(result.data[0].created_at);
+                //(result.data[0].created_at);
                 const data = result.data;
                 
                 for(var key in data) { 
                     
                     const created_at = toStringByFormatting(new Date(data[key]['created_at']));
-                    html += '<tr><th><input type="checkbox" class="checks" value="'+data[key]['reservation_id']+'"></th>';
+                    html += '<tr><th><input type="checkbox" class="check_row_id" value="'+data[key]['reservation_id']+'"></th>';
                     html += '<td>'+created_at+'</td>';
                     html += '<td>'+data[key]['reservation_no']+'</td>';
                     html += '<td>'+data[key]['name']+'('+data[key]['email']+')</td>';
