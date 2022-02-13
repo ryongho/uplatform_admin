@@ -166,8 +166,8 @@
 
                     <div class="col-12">
                         <button type="button" class="btn btn-primary" id="btn_cancel" style="margin-left:50px;width:100px;" onclick="cancel()">예약 취소</button>
-                        <button type="button" class="btn btn-primary" id="btn_go_i" style="margin-left:30px;width:170px;" target="I" onclick="go()">진행중 리스트로 이동</button>
-                        <button type="button" class="btn btn-primary" id="btn_go_s" style="margin-left:30px;width:170px;display:none;" target="S" onclick="go()">완료된 리스트로 이동</button>
+                        <button type="button" class="btn btn-primary" id="btn_go_i" style="margin-left:30px;width:170px;" target="I" onclick="go('i')">진행중 리스트로 이동</button>
+                        <button type="button" class="btn btn-primary" id="btn_go_s" style="margin-left:30px;width:170px;display:none;" target="S" onclick="go('s')">완료된 리스트로 이동</button>
                     </div>
 
                     <nav aria-label="Page navigation" style="width:300px; margin:auto;">
@@ -510,8 +510,7 @@
         get_reservation();
     }
 
-    const go = () => {
-        const target = $("#btn_go").attr('target');
+    const go = (target) => {
         change_status(target);
     }
 

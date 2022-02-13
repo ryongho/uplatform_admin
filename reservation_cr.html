@@ -112,8 +112,8 @@
                         <input type="hidden" id="type" value="W"/>
                         <div style="margin-top:80px;margin-bottom:40px;">
                             <button type="button" class="btn btn-lg btn-primary m-2 btn_status" id="btn_status_W" onclick="change_status('W')">확정대기 <span id="w_cnt"></span></button>
-                            <button type="button" class="btn btn-primary" id="btn_go_i" style="margin-left:30px;width:170px;" target="I" onclick="go()">진행중 리스트로 이동</button>
-                            <button type="button" class="btn btn-primary" id="btn_go_s" style="margin-left:30px;width:170px;display:none;" target="S" onclick="go()">완료된 리스트로 이동</button>
+                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_I" onclick="change_status('I')">진행중 <span id="i_cnt"></span></button>
+                            <button type="button" class="btn btn-lg btn-outline-secondary m-2 btn_status" id="btn_status_S" onclick="change_status('S')">완료 <span id="s_cnt"></span></button>
                         </div>
                         <select class="form-select search_type mb-1" id="search_type" aria-label=".search_type" style="width:auto;float:left;margin-right:10px;">
                             <option selected value="">전체</option>
@@ -165,7 +165,8 @@
                     
                     <div class="col-12">
                         <button type="button" class="btn btn-primary" id="btn_cancel" style="margin-left:50px;width:100px;" onclick="cancel()">예약 취소</button>
-                        <button type="button" class="btn btn-primary" id="btn_go" style="margin-left:30px;width:170px;" target="I" onclick="go()">진행중 리스트로 이동</button>
+                        <button type="button" class="btn btn-primary" id="btn_go_i" style="margin-left:30px;width:170px;" target="I" onclick="go('i')">진행중 리스트로 이동</button>
+                        <button type="button" class="btn btn-primary" id="btn_go_s" style="margin-left:30px;width:170px;display:none;" target="S" onclick="go('s')">완료된 리스트로 이동</button>
                     </div>
 
                     <nav aria-label="Page navigation" style="width:300px; margin:auto;">
