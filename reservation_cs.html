@@ -488,7 +488,7 @@
         });
     }
 
-    const change_status = (type) =>{
+    const change_status = async (type) =>{
         $("#type").val(type);
         if(type == "W"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
@@ -501,11 +501,12 @@
             $("#btn_go_s").css('display','');
             $("#btn_go_i").css('display','none');
         }else if(type == "S"){
+            await complete();
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_S").removeClass("btn-outline-btn-primary").addClass("btn-primary");
             $("#btn_go_s").css('display','none');
             $("#btn_go_i").css('display','none');
-            complete();
+            
         }
         
         get_reservation();
