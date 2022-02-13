@@ -516,6 +516,7 @@
 
     const pop_apply_list = (reservation_id) => {
         //console.log(reservation_id);
+        $("#exampleModal").css('z-index:10;')
 
         $("#selected_reservation_id").val(reservation_id);
 
@@ -560,6 +561,8 @@
     const matching = () =>{
 
         let apply_id = "";
+
+        $("#exampleModal").css('z-index:-1;')
 
         $('.check_apply_id').each(function() {
             var value = $(this).val();              // value
