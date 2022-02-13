@@ -516,7 +516,7 @@
 
     const pop_apply_list = (reservation_id) => {
         //console.log(reservation_id);
-        $("#exampleModal").css('z-index:10000;')
+        $("#exampleModal").css('z-index','10000');
 
         $("#selected_reservation_id").val(reservation_id);
 
@@ -531,7 +531,6 @@
         .done(function(result) {
             
             if(result.status == "200"){ 
-               console.log(result.data);
                let html = "";
                const data = result.data;
                 
@@ -562,7 +561,7 @@
 
         let apply_id = "";
 
-        $("#exampleModal").css('z-index:-1;')
+        $("#exampleModal").css('z-index','-1');
 
         $('.check_apply_id').each(function() {
             var value = $(this).val();              // value
