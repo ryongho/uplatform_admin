@@ -634,33 +634,33 @@
 
     const complete = () =>{
 
-    let ids = '';
-    $('.check_row_id').each(function() {
-        var value = $(this).val();              // value
-        var checked = $(this).prop('checked'); 
-        if(checked){
-            ids += value + ",";
-        }
-    });
+        let ids = '';
+        $('.check_row_id').each(function() {
+            var value = $(this).val();              // value
+            var checked = $(this).prop('checked'); 
+            if(checked){
+                ids += value + ",";
+            }
+        });
 
-    $.ajax({
-        method: "PUT",
-        headers: {
-            'Authorization': `Bearer `+$.cookie('token'),
-        },
-        url: "https://api.hi-shiny-o.com/api/admin/reservation/complete",
-        data: { ids : ids }
-    })
-    .done(function(result) {
+        $.ajax({
+            method: "PUT",
+            headers: {
+                'Authorization': `Bearer `+$.cookie('token'),
+            },
+            url: "https://api.hi-shiny-o.com/api/admin/reservation/complete",
+            data: { ids : ids }
+        })
+        .done(function(result) {
 
-        if(result.status == "200"){ 
-            //alert(" 되었습니다.");
-            get_reservation();
-            get_cnt();
-        }else{
-            alert("서비스 완료처리 실패 : 관리자에게 문의하세요.");
-        }
-    });
+            if(result.status == "200"){ 
+                //alert(" 되었습니다.");
+                get_reservation();
+                get_cnt();
+            }else{
+                alert("서비스 완료처리 실패 : 관리자에게 문의하세요.");
+            }
+        });
     
 
     }
