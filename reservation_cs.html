@@ -305,7 +305,7 @@
         const now = new Date();
         const year = now.getFullYear();
         const month = leftPad(now.getMonth()+1);
-        const fir_day = 1;
+        const fir_day = 01;
         const end_day = new Date(year,now.getMonth()+1,0).getDate();
     
         await $("#start_date").val(year-1+"-"+month+"-"+fir_day);
