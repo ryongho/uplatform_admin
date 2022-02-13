@@ -500,12 +500,12 @@
             $("#btn_status_I").removeClass("btn-outline-btn-primary").addClass("btn-primary");
             $("#btn_go_s").css('display','');
             $("#btn_go_i").css('display','none');
-            complete();
         }else if(type == "S"){
             $(".btn_status").addClass("btn-outline-secondary").removeClass("btn-primary");
             $("#btn_status_S").removeClass("btn-outline-btn-primary").addClass("btn-primary");
             $("#btn_go_s").css('display','none');
             $("#btn_go_i").css('display','none');
+            complete();
         }
         
         get_reservation();
