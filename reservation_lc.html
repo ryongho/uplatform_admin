@@ -177,7 +177,7 @@
                     
                     <!-- Modal -->
                     
-                    <div class="modal fade modal-dialog modal-xl position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div style="z-index: -1;" class="modal fade modal-dialog modal-xl position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -549,6 +549,8 @@
     const pop_apply_list = (reservation_id) => {
         //console.log(reservation_id);
 
+        $("#exampleModal").css('z-index','10000');
+
         $("#selected_reservation_id").val(reservation_id);
 
         $.ajax({
@@ -591,6 +593,8 @@
     const matching = () =>{
 
         let apply_id = "";
+
+        $("#exampleModal").css('z-index','-1');
 
         $('.check_apply_id').each(function() {
             var value = $(this).val();              // value
